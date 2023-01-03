@@ -128,9 +128,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="algorithm.cpp" />
+    <ClCompile Include="divide_conquer\divide_conquer.cpp" />
     <ClCompile Include="sort\sort.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="divide_conquer\divide_conquer.h" />
     <ClInclude Include="sort\sort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -21,9 +21,15 @@
     <ClCompile Include="sort\sort.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="divide_conquer\divide_conquer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sort\sort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="divide_conquer\divide_conquer.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
