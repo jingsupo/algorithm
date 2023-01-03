@@ -50,4 +50,17 @@ public:
     //稳定性：不稳定
     void heap();
     void build_heap(std::vector<int>& vec, int start, int end);
+
+    //快速排序
+    //时间复杂度：O(nlogn)
+    //空间复杂度：O(logn)
+    //稳定性：不稳定
+    void quick(int left, int right);
+
+    //归并排序
+    //时间复杂度：O(nlogn)
+    //空间复杂度：O(n)
+    //稳定性：稳定
+    void merge(int left, int right);
+    void _merge(int left, int right, int mid);
 };

@@ -163,3 +163,53 @@ void sort::build_heap(std::vector<int>& vec, int start, int end)
         child = 2 * cur + 1;
     }
 }
+
+void sort::quick(int left, int right)
+{
+    if (left >= right) return;
+
+    //默认最左侧元素为基准元素
+    int pivot = vec[left];
+    int i = left;
+    int j = right;
+    while (i < j)
+    {
+        while ((i < j) and (vec[j] > pivot)) j--;//从右向左找比pivot小的值
+        if (i < j) vec[i++] = vec[j];
+        while ((i < j) and (vec[i] < pivot)) i++;//从左向右找比pivot大的值
+        if (i < j) vec[j--] = vec[i];
+    }
+    vec[i] = pivot;
+    quick(left, i - 1);
+    quick(i + 1, right);
+}
+
+void sort::merge(int left, int right)
+{
+    if (left >= right) return;
+
+    int mid = left + (right - left) / 2;
+    merge(left, mid);//递归分解
+    merge(mid + 1, right);
+    _merge(left, right, mid);//合并排序
+}
+
+void sort::_merge(int left, int right, int mid)
+{
+    int* tmp = new int[right - left + 1];
+
+    int i = left;
+    int j = mid + 1;
+    int idx = 0;
+    while ((i <= mid) and (j <= right))
+    {
+        if (vec[i] <= vec[j]) tmp[idx++] = vec[i++];//比较左右两个数组的元素大小，较小的元素放入tmp数组
+        else tmp[idx++] = vec[j++];
+    }
+    while (i <= mid) tmp[idx++] = vec[i++];//将剩余的元素放入tmp数组
+    while (j <= mid) tmp[idx++] = vec[j++];//将剩余的元素放入tmp数组
+
+    for (int i = 0; i < idx; i++) vec[left + i] = tmp[i];
+
+    delete[]tmp;
+}
