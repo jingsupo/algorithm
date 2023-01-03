@@ -1,11 +1,11 @@
-#include "divide_conquer.h"
+ï»¿#include "divide_conquer.h"
 
 divide_conquer::divide_conquer(std::vector<int> vec)
 {
 	this->vec = vec;
 }
 
-int divide_conquer::binary_search(std::vector<int>& vec, int target)//Êı×é±ØĞëÊÇÉıĞòÅÅÁĞ
+int divide_conquer::binary_search(std::vector<int>& vec, int target)//æ•°ç»„å¿…é¡»æ˜¯å‡åºæ’åˆ—
 {
 	int low = 0;
 	int high = vec.size() - 1;

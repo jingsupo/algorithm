@@ -1,4 +1,4 @@
-#include <algorithm>
+ï»¿#include <algorithm>
 
 #include "sort.h"
 
@@ -11,16 +11,16 @@ void sort::bubble()
 {
     for (int i = vec.size() - 1; i > 0; i--)
     {
-        bool flag = true;//ÅĞ¶ÏÊı×éÊÇ·ñÓĞĞò
+        bool flag = true;//åˆ¤æ–­æ•°ç»„æ˜¯å¦æœ‰åº
         for (int j = 0; j < i; j++)
         {
             if (vec[j] > vec[j + 1])
             {
                 std::swap(vec[j], vec[j + 1]);
-                flag = false;//Èç¹û·¢ÉúÁË½»»»£¬ÔòÊı×éÈÔÈ»ÎŞĞò
+                flag = false;//å¦‚æœå‘ç”Ÿäº†äº¤æ¢ï¼Œåˆ™æ•°ç»„ä»ç„¶æ— åº
             }
         }
-        if (flag) break;//Èç¹ûÊı×éÒÑ¾­ÓĞĞò£¬ÔòÌø³öÑ­»·
+        if (flag) break;//å¦‚æœæ•°ç»„å·²ç»æœ‰åºï¼Œåˆ™è·³å‡ºå¾ªç¯
     }
 }
 
@@ -42,16 +42,16 @@ void sort::select()
 
 void sort::insert()
 {
-    for (int i = 1; i < vec.size(); i++)//ÎŞĞòÇø
+    for (int i = 1; i < vec.size(); i++)//æ— åºåŒº
     {
-        for (int j = 0; j < i; j++)//ÓĞĞòÇø
+        for (int j = 0; j < i; j++)//æœ‰åºåŒº
         {
             if (vec[i] < vec[j])
             {
                 int tmp = vec[i];
                 for (int k = i - 1; k >= j; k--)
                 {
-                    vec[k + 1] = vec[k];//ÕûÌåºóÒÆ
+                    vec[k + 1] = vec[k];//æ•´ä½“åç§»
                 }
                 vec[j] = tmp;
                 break;
@@ -62,9 +62,9 @@ void sort::insert()
 
 void sort::shell()
 {
-    for (int gap = vec.size() / 2; gap > 0; gap /= 2)//·Ö×é
+    for (int gap = vec.size() / 2; gap > 0; gap /= 2)//åˆ†ç»„
     {
-        for (int i = 0; i < gap; i++)//¶ÔÃ¿×é½øĞĞ²åÈëÅÅĞò
+        for (int i = 0; i < gap; i++)//å¯¹æ¯ç»„è¿›è¡Œæ’å…¥æ’åº
         {
             shell_insert(vec, i, gap);
         }
@@ -73,16 +73,16 @@ void sort::shell()
 
 void sort::shell_insert(std::vector<int>& vec, int start, int gap)
 {
-    for (int i = start + gap; i < vec.size(); i += gap)//ÎŞĞòÇø
+    for (int i = start + gap; i < vec.size(); i += gap)//æ— åºåŒº
     {
-        for (int j = start; j < i; j += gap)//ÓĞĞòÇø
+        for (int j = start; j < i; j += gap)//æœ‰åºåŒº
         {
             if (vec[i] < vec[j])
             {
                 int tmp = vec[i];
                 for (int k = i - gap; k >= j; k -= gap)
                 {
-                    vec[k + gap] = vec[k];//ÕûÌåºóÒÆ
+                    vec[k + gap] = vec[k];//æ•´ä½“åç§»
                 }
                 vec[j] = tmp;
                 break;
@@ -94,13 +94,13 @@ void sort::shell_insert(std::vector<int>& vec, int start, int gap)
 void sort::count()
 {
     int max_val = *std::max_element(vec.begin(), vec.end());
-    int* arr = new int[max_val + 1] {0};//´´½¨ĞÂÊı×é´æ·ÅÔ­Êı×éÖĞÃ¿¸öÔªËØ³öÏÖµÄ´ÎÊı
+    int* arr = new int[max_val + 1] {0};//åˆ›å»ºæ–°æ•°ç»„å­˜æ”¾åŸæ•°ç»„ä¸­æ¯ä¸ªå…ƒç´ å‡ºç°çš„æ¬¡æ•°
     for (auto& v : vec)
     {
-        arr[v]++;//¸ù¾İÏÂ±êÍ³¼ÆÔ­Êı×éÖĞÃ¿¸öÔªËØ³öÏÖµÄ´ÎÊı
+        arr[v]++;//æ ¹æ®ä¸‹æ ‡ç»Ÿè®¡åŸæ•°ç»„ä¸­æ¯ä¸ªå…ƒç´ å‡ºç°çš„æ¬¡æ•°
     }
     vec.clear();
-    for (int i = 0; i <= max_val; i++)//°´ÕÕÏÂ±êÒÀ´ÎÈ¡³öĞÂÊı×éÖĞµÄÖµ´óÓÚ0µÄÏÂ±ê
+    for (int i = 0; i <= max_val; i++)//æŒ‰ç…§ä¸‹æ ‡ä¾æ¬¡å–å‡ºæ–°æ•°ç»„ä¸­çš„å€¼å¤§äº0çš„ä¸‹æ ‡
     {
         while (arr[i])
         {
@@ -115,19 +115,19 @@ void sort::bucket()
 {
     int max_val = *std::max_element(vec.begin(), vec.end());
     int min_val = *std::min_element(vec.begin(), vec.end());
-    int bucket_num = (max_val - min_val) / vec.size() + 1;//Í°µÄÊıÁ¿£¬+1ÊÇÎªÁËÏòÉÏÈ¡Õû
+    int bucket_num = (max_val - min_val) / vec.size() + 1;//æ¡¶çš„æ•°é‡ï¼Œ+1æ˜¯ä¸ºäº†å‘ä¸Šå–æ•´
     std::vector<std::vector<int>> buckets(bucket_num);
-    for (auto& v : vec)//°´ÕÕÃ¿¸öÔªËØµÄÈ¡Öµ·¶Î§½øĞĞ·ÖÍ°
+    for (auto& v : vec)//æŒ‰ç…§æ¯ä¸ªå…ƒç´ çš„å–å€¼èŒƒå›´è¿›è¡Œåˆ†æ¡¶
     {
-        int idx = (v - min_val + 1) / vec.size();//¼ÆËã·ÖÍ°±àºÅ
+        int idx = (v - min_val + 1) / vec.size();//è®¡ç®—åˆ†æ¡¶ç¼–å·
         buckets[idx].push_back(v);
     }
-    for (auto& v : buckets)//Í°ÄÚÅÅĞò
+    for (auto& v : buckets)//æ¡¶å†…æ’åº
     {
         std::sort(v.begin(), v.end());
     }
     vec.clear();
-    for (auto& v : buckets)//±éÀúÊä³öÃ¿¸öÍ°ÄÚµÄÔªËØ
+    for (auto& v : buckets)//éå†è¾“å‡ºæ¯ä¸ªæ¡¶å†…çš„å…ƒç´ 
     {
         for (auto& vv : v)
         {
@@ -138,15 +138,15 @@ void sort::bucket()
 
 void sort::heap()
 {
-    for (int i = vec.size() / 2 - 1; i >= 0; i--)//¹¹½¨×î´ó¶Ñ
+    for (int i = vec.size() / 2 - 1; i >= 0; i--)//æ„å»ºæœ€å¤§å †
     {
         build_heap(vec, i, vec.size());
     }
 
     for (int i = vec.size() - 1; i >= 0; i--)
     {
-        std::swap(vec[0], vec[i]);//µÚÒ»¸öÓë×îºóÒ»¸ö½»»»
-        build_heap(vec, 0, i);//ÖØ½¨¶Ñ
+        std::swap(vec[0], vec[i]);//ç¬¬ä¸€ä¸ªä¸æœ€åä¸€ä¸ªäº¤æ¢
+        build_heap(vec, 0, i);//é‡å»ºå †
     }
 }
 
@@ -156,9 +156,9 @@ void sort::build_heap(std::vector<int>& vec, int start, int end)
     int child = 2 * cur + 1;
     while (child < end)
     {
-        if ((child + 1 < end) and (vec[child] < vec[child + 1])) child++;//²é¿´×óÓÒ×ÓÊ÷µÄ×î´ó½Úµã
-        if (vec[cur] > vec[child]) break;//Èç¹û¸¸½Úµã´óÓÚ×óÓÒ×ÓÊ÷µÄ×î´ó½Úµã£¬ÔòÌø³öÑ­»·
-        std::swap(vec[cur], vec[child]);//·ñÔò£¬½»»»¸¸×Ó½Úµã
+        if ((child + 1 < end) and (vec[child] < vec[child + 1])) child++;//æŸ¥çœ‹å·¦å³å­æ ‘çš„æœ€å¤§èŠ‚ç‚¹
+        if (vec[cur] > vec[child]) break;//å¦‚æœçˆ¶èŠ‚ç‚¹å¤§äºå·¦å³å­æ ‘çš„æœ€å¤§èŠ‚ç‚¹ï¼Œåˆ™è·³å‡ºå¾ªç¯
+        std::swap(vec[cur], vec[child]);//å¦åˆ™ï¼Œäº¤æ¢çˆ¶å­èŠ‚ç‚¹
         cur = child;
         child = 2 * cur + 1;
     }
