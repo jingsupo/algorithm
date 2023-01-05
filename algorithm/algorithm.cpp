@@ -39,7 +39,8 @@ int main()
     //printVec(s.vec);
     //分治算法
     divide_conquer dc(vec);
-    std::sort(dc.vec.begin(), dc.vec.end());//二分查找前必须先对数组排序
-    int target = 10;
-    std::cout << "要查找的元素 " << target << " 在数组中的索引为 " << dc.binary_search(dc.vec, target) << std::endl;
+    //std::sort(dc.vec.begin(), dc.vec.end());//二分查找前必须先对数组排序
+    //int target = 10;
+    //std::cout << "要查找的元素 " << target << " 在数组中的索引为 " << dc.binary_search(dc.vec, target) << std::endl;
+    dc.hannuota(5, 'A', 'B', 'C');
 }

@@ -11,4 +11,7 @@ public:
 	//时间复杂度：O(logn)
 	//空间复杂度：O(1)
 	int binary_search(std::vector<int>& vec, int target);
+
+	//汉诺塔
+	void hannuota(int num, char a, char b, char c);
 };
