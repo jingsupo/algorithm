@@ -5,7 +5,7 @@ class divide_conquer
 public:
 	std::vector<int> vec;
 
-	divide_conquer(std::vector<int> vec);
+	divide_conquer(std::vector<int> vec) :vec(vec) {};
 
 	//二分查找
 	//时间复杂度：O(logn)

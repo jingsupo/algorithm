@@ -5,7 +5,7 @@ class sort
 public:
     std::vector<int> vec;
 
-    sort(std::vector<int> vec);
+    sort(std::vector<int> vec) :vec(vec) {};
 
     //冒泡排序
     //时间复杂度：O(n^2)
