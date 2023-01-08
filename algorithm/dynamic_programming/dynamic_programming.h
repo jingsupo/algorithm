@@ -1,6 +1,6 @@
 class dynamic_programming
 {
 public:
-	//×î³¤¹«¹²×Ó´®
+	//æœ€é•¿å…¬å…±å­ä¸²
 	char* longest_common_substring(char* str1, char* str2);
 };
