@@ -129,10 +129,12 @@
   <ItemGroup>
     <ClCompile Include="algorithm.cpp" />
     <ClCompile Include="divide_conquer\divide_conquer.cpp" />
+    <ClCompile Include="dynamic_programming\dynamic_programming.cpp" />
     <ClCompile Include="sort\sort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="divide_conquer\divide_conquer.h" />
+    <ClInclude Include="dynamic_programming\dynamic_programming.h" />
     <ClInclude Include="sort\sort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
